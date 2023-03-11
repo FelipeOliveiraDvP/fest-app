@@ -1,11 +1,12 @@
-import { Title, Container } from "@mantine/core";
+import { Carousel } from "@/components/home/Carousel";
+import { Container, Stack } from "@mantine/core";
 
 export default function Home() {
   return (
     <Container>
-      <Title order={1} color="primary">
-        Hello World
-      </Title>
+      <Stack spacing="md" my="md">
+        <Carousel />
+      </Stack>
     </Container>
   );
 }

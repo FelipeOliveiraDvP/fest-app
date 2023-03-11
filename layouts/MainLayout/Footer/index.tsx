@@ -40,7 +40,13 @@ export function MainFooter() {
         </Grid.Col>
         <Grid.Col md={6} lg={6}>
           <Flex>
-            <Image src="/qrcode.png" maw={100} mr={12} />
+            <Image
+              src="/qrcode.png"
+              width={100}
+              height={100}
+              mr={12}
+              alt="Baixe nosso App"
+            />
             <div>
               <Text>Baixe agora nosso App</Text>
               <Text color="blue.7">Aponte a câmera do seu celular aqui</Text>
