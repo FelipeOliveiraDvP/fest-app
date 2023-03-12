@@ -46,12 +46,11 @@ export function MainHeader() {
             <Group role="navigation">
               <NavLink href="/">Eventos</NavLink>
               <NavLink href="/produtor">Área do produtor</NavLink>
-              <NavLink href="/cliente">Área do cliente</NavLink>
             </Group>
           </MediaQuery>
 
           <MediaQuery smallerThan="md" styles={{ display: "none" }}>
-            <Avatar radius="xl" color="pink" size={48} />
+            <Avatar radius="xl" color="primary" size={48} />
           </MediaQuery>
 
           <MediaQuery largerThan="md" styles={{ display: "none" }}>
@@ -73,7 +72,6 @@ export function MainHeader() {
           <Stack spacing="xs" align="flex-end" role="navigation">
             <NavLink href="/">Eventos</NavLink>
             <NavLink href="/produtor">Área do produtor</NavLink>
-            <NavLink href="/cliente">Área do cliente</NavLink>
           </Stack>
         </Drawer>
       </Container>

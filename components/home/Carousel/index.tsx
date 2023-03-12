@@ -1,7 +1,9 @@
 import { useRef } from "react";
-import { Image, Grid, Center, Stack, Text, Button } from "@mantine/core";
+import { Box, Grid, Center, Stack, Text, Button } from "@mantine/core";
 import { Carousel as MantineCarousel } from "@mantine/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
+import Image from "next/image";
 
 interface CarouselItem {
   banner: string;
@@ -17,14 +19,46 @@ export function Carousel() {
     <MantineCarousel
       mx="auto"
       withIndicators
-      withControls={false}
-      plugins={[autoplay.current]}
+      maw="100%"
+      // plugins={[autoplay.current]}
       onMouseEnter={autoplay.current.stop}
       onMouseLeave={autoplay.current.reset}
+      previousControlLabel="Anterior"
+      nextControlLabel="Próximo"
       styles={(theme) => ({
+        root: {
+          marginLeft: "0 !important",
+          marginRight: "0 !important",
+        },
         controls: {
-          position: "static",
-          marginTop: theme.spacing.sm,
+          [`@media(max-width: ${theme.breakpoints.md})`]: {
+            "&": {
+              top: 175,
+            },
+          },
+          [`@media(max-width: ${theme.breakpoints.sm})`]: {
+            "&": {
+              top: 75,
+            },
+          },
+        },
+        control: {
+          background: theme.colors.primary[9],
+          borderColor: theme.colors.primary[9],
+          color: "white",
+          opacity: 1,
+        },
+        indicators: {
+          [`@media(max-width: ${theme.breakpoints.md})`]: {
+            "&": {
+              top: 350,
+            },
+          },
+          [`@media(max-width: ${theme.breakpoints.sm})`]: {
+            "&": {
+              top: 160,
+            },
+          },
         },
         indicator: {
           backgroundColor: theme.colors.gray[4],
@@ -43,33 +77,51 @@ export function Carousel() {
           bg="gray.1"
           sx={(theme) => ({
             borderRadius: theme.radius.xl,
+            width: "100%",
           })}
         >
           <Grid>
-            <Grid.Col md={6} lg={8}>
-              <Image
-                src={event.banner}
-                alt={event.title}
-                width="100%"
-                height="100%"
-                radius="xl"
-              />
-            </Grid.Col>
-            <Grid.Col md={6} lg={4}>
-              <Center h="100%">
-                <Stack spacing="xs" align="center">
-                  <Image
-                    src={event.logo}
+            <Grid.Col sm={6} md={8}>
+              <Link href={`/eventos/${event.slug}`}>
+                <Box
+                  pos="relative"
+                  h={{ base: 300, sm: 250, md: 350, lg: 450 }}
+                >
+                  <Box
+                    component={Image}
+                    src={event.banner}
                     alt={event.title}
-                    withPlaceholder
-                    width={150}
-                    height={150}
-                    radius="100%"
+                    fill
+                    sizes="100%"
+                    sx={(theme) => ({
+                      borderRadius: theme.radius.xl,
+                    })}
                   />
-                  <Text weight={700} align="center">
+                </Box>
+              </Link>
+            </Grid.Col>
+            <Grid.Col sm={6} md={4}>
+              <Center h="100%">
+                <Stack spacing="xs" align="center" pb="sm">
+                  <Box pos="relative" h={150} w={150}>
+                    <Box
+                      component={Image}
+                      src={event.logo || "/placeholder.jpg"}
+                      alt={event.title}
+                      fill
+                      sx={() => ({
+                        borderRadius: "100%",
+                      })}
+                    />
+                  </Box>
+                  <Text weight={500} size="lg" align="center">
                     {event.title}
                   </Text>
-                  <Button color="acent.9" radius="xl">
+                  <Button
+                    color="acent.9"
+                    radius="xl"
+                    aria-label="Comprar ingresso"
+                  >
                     Comprar Ingresso
                   </Button>
                 </Stack>

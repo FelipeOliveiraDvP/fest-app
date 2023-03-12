@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:build": "docker build -t fest-app:latest .",
+    "docker:run": "docker run --rm -it -p 8080:3000 --name fest-app fest-app:latest"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",

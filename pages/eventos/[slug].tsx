@@ -1,10 +1,10 @@
 import { Title, Container } from "@mantine/core";
 
-export default function Customer() {
+export default function EventDetail() {
   return (
     <Container>
       <Title order={1} color="primary">
-        Área do cliente
+        Detalhe do evento
       </Title>
     </Container>
   );
