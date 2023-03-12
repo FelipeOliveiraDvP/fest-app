@@ -19,7 +19,7 @@ export function EventCard({ event }: Props) {
       }}
     >
       <Stack spacing={8}>
-        <Box pos="relative" h={{ base: 300, sm: 350, md: 250 }}>
+        <Box pos="relative" h={{ base: 200, sm: 350, md: 250 }}>
           <Box
             component={Image}
             src={event.banner}

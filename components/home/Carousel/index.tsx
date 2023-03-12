@@ -20,7 +20,7 @@ export function Carousel() {
       mx="auto"
       withIndicators
       maw="100%"
-      // plugins={[autoplay.current]}
+      plugins={[autoplay.current]}
       onMouseEnter={autoplay.current.stop}
       onMouseLeave={autoplay.current.reset}
       previousControlLabel="Anterior"
@@ -37,6 +37,11 @@ export function Carousel() {
             },
           },
           [`@media(max-width: ${theme.breakpoints.sm})`]: {
+            "&": {
+              top: 125,
+            },
+          },
+          [`@media(max-width: ${theme.breakpoints.xs})`]: {
             "&": {
               top: 75,
             },
@@ -55,6 +60,11 @@ export function Carousel() {
             },
           },
           [`@media(max-width: ${theme.breakpoints.sm})`]: {
+            "&": {
+              top: 225,
+            },
+          },
+          [`@media(max-width: ${theme.breakpoints.xs})`]: {
             "&": {
               top: 160,
             },
@@ -81,11 +91,11 @@ export function Carousel() {
           })}
         >
           <Grid>
-            <Grid.Col sm={6} md={8}>
+            <Grid.Col sm={8}>
               <Link href={`/eventos/${event.slug}`}>
                 <Box
                   pos="relative"
-                  h={{ base: 300, sm: 250, md: 350, lg: 450 }}
+                  h={{ base: 200, sm: 250, md: 350, lg: 450 }}
                 >
                   <Box
                     component={Image}
@@ -100,7 +110,7 @@ export function Carousel() {
                 </Box>
               </Link>
             </Grid.Col>
-            <Grid.Col sm={6} md={4}>
+            <Grid.Col sm={4}>
               <Center h="100%">
                 <Stack spacing="xs" align="center" pb="sm">
                   <Box pos="relative" h={150} w={150}>

@@ -15,8 +15,8 @@ export interface Event {
 
 export default function Home() {
   return (
-    <Container>
-      <Stack spacing={32} my={48}>
+    <Container my={48}>
+      <Stack spacing={32}>
         <Carousel />
         <Grid>
           <Grid.Col md={6} lg={4} order={2} orderMd={1}>
