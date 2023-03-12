@@ -7,7 +7,6 @@ import {
   Container,
   Flex,
   Group,
-  Text,
   MediaQuery,
   ActionIcon,
   Stack,
@@ -17,6 +16,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { IconMenu2 } from "@tabler/icons-react";
 
 import { NavLink } from "@/components/_commons/NavLink";
+import Image from "next/image";
 
 export function MainHeader() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -29,17 +29,23 @@ export function MainHeader() {
   return (
     <Box
       component="header"
-      h={72}
+      h={96}
       sx={(theme) => ({
         boxShadow: theme.shadows.md,
       })}
     >
       <Container h="100%">
         <Flex justify="space-between" h="100%" align="center">
-          <Link href="/" style={{ textDecoration: "none" }}>
-            <Text color="primary" weight={900} size={32}>
-              LOGO
-            </Text>
+          <Link href="/">
+            <Box pos="relative" h={{ base: 85 }} w={{ base: 75 }}>
+              <Box
+                component={Image}
+                src="/logo.png"
+                alt="Fest"
+                fill
+                sizes="100%"
+              />
+            </Box>
           </Link>
 
           <MediaQuery smallerThan="md" styles={{ display: "none" }}>

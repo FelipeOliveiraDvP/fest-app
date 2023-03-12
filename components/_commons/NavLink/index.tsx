@@ -28,7 +28,7 @@ export function NavLink({ children, href }: Props) {
 const useStyles = createStyles((theme) => ({
   root: {
     fontWeight: 600,
-    fontSize: theme.fontSizes.md,
+    fontSize: 18,
     color: theme.colors.gray[7],
 
     "&:hover, &.active": {
