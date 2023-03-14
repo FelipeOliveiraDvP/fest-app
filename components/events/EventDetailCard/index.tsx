@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Card, Box, Stack, Title, Text, Button } from "@mantine/core";
 import { IconCalendar, IconClock, IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
+import { IconLabel } from "@/components/_commons/IconLabel";
 
 interface Props {
   slug: string;
@@ -25,36 +26,25 @@ export function EventDetailCard({ slug }: Props) {
             })}
           />
         </Box>
-        <Text
+        <IconLabel
+          icon={<IconCalendar size={24} />}
+          label="Ter 12 de Mar"
           color="yellow.7"
           size={18}
-          sx={() => ({
-            display: "flex",
-            alignItems: "center",
-          })}
-        >
-          <IconCalendar size={24} /> Ter 12 de Mar
-        </Text>
-        <Text
+        />
+        <IconLabel
+          icon={<IconClock size={24} />}
+          label="22:00"
           color="yellow.7"
           size={18}
-          sx={() => ({
-            display: "flex",
-            alignItems: "center",
-          })}
-        >
-          <IconClock size={24} /> 22:00
-        </Text>
-        <Text
+        />
+        <IconLabel
+          icon={<IconMapPin size={24} />}
+          label="Arena Barra Funda"
           size={18}
           weight={700}
-          sx={() => ({
-            display: "flex",
-            alignItems: "center",
-          })}
-        >
-          <IconMapPin size={24} /> Arena Barra Funda
-        </Text>
+        />
+
         <Text>
           Avenida Nicolas Boer, 850 01140-060, Parque Industrial Tomas Edson,
           São Paulo, SP

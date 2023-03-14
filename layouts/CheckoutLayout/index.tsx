@@ -10,7 +10,14 @@ interface Props {
 export default function CheckoutLayout({ children }: Props) {
   return (
     <Stack spacing={32}>
-      <Flex justify="space-around" bg="gray.1" py="md">
+      <Flex
+        justify="space-around"
+        bg="gray.1"
+        py="md"
+        sx={(theme) => ({
+          borderRadius: theme.radius.md,
+        })}
+      >
         {/* TODO: Get step complete from session when user submit the page */}
         <CheckoutStep path="ingressos" label="Ingressos" complete />
         <CheckoutStep path="identificacao" label="Identificação" />
