@@ -15,31 +15,29 @@ export interface Event {
 
 export default function Home() {
   return (
-    <Container my={48}>
-      <Stack spacing={32}>
-        <Carousel />
-        <Grid>
-          <Grid.Col md={6} lg={4} order={2} orderMd={1}>
-            <CitySelect />
+    <Stack spacing={32}>
+      <Carousel />
+      <Grid>
+        <Grid.Col md={6} lg={4} order={2} orderMd={1}>
+          <CitySelect />
+        </Grid.Col>
+        <Grid.Col md={6} lg={4} offsetLg={4} order={1} orderMd={2}>
+          <Search />
+        </Grid.Col>
+      </Grid>
+      <Grid>
+        {events.map((event) => (
+          <Grid.Col key={event.slug} md={6} lg={4}>
+            <EventCard event={event} />
           </Grid.Col>
-          <Grid.Col md={6} lg={4} offsetLg={4} order={1} orderMd={2}>
-            <Search />
-          </Grid.Col>
-        </Grid>
-        <Grid>
-          {events.map((event) => (
-            <Grid.Col key={event.slug} md={6} lg={4}>
-              <EventCard event={event} />
-            </Grid.Col>
-          ))}
-        </Grid>
-        <Group position="center">
-          <Button color="primary" size="xl" radius="lg">
-            OUTROS EVENTOS
-          </Button>
-        </Group>
-      </Stack>
-    </Container>
+        ))}
+      </Grid>
+      <Group position="center">
+        <Button color="primary" size="xl" radius="lg">
+          OUTROS EVENTOS
+        </Button>
+      </Group>
+    </Stack>
   );
 }
 

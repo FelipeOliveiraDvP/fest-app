@@ -1,8 +1,13 @@
 import Image from "next/image";
 import { Card, Box, Stack, Title, Text, Button } from "@mantine/core";
 import { IconCalendar, IconClock, IconMapPin } from "@tabler/icons-react";
+import Link from "next/link";
 
-export function EventDetailCard() {
+interface Props {
+  slug: string;
+}
+
+export function EventDetailCard({ slug }: Props) {
   return (
     <Card shadow="md" radius="xl" withBorder>
       <Stack spacing="md">
@@ -54,7 +59,13 @@ export function EventDetailCard() {
           Avenida Nicolas Boer, 850 01140-060, Parque Industrial Tomas Edson,
           São Paulo, SP
         </Text>
-        <Button color="acent.9" radius="xl" aria-label="Comprar ingresso">
+        <Button
+          color="acent.9"
+          radius="xl"
+          component={Link}
+          href={`/finalizar/${slug}/ingressos`}
+          aria-label="Comprar ingresso"
+        >
           Comprar Ingresso
         </Button>
       </Stack>

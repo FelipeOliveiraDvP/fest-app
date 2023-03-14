@@ -130,6 +130,8 @@ export function Carousel() {
                   <Button
                     color="acent.9"
                     radius="xl"
+                    component={Link}
+                    href={`/finalizar/${event.slug}/ingressos`}
                     aria-label="Comprar ingresso"
                   >
                     Comprar Ingresso
